@@ -6,8 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-
-    <script>
+    <!-- <script>
     //  const _script = document.createElement('script')
     //  _script.src = "http://localhost:3000/?callback=cb"
 
@@ -19,7 +18,14 @@
 
     </script>
 
-    <script src="http://localhost:3000/?callback=cb"></script>
-      
+    <script src="http://localhost:3000/?callback=cb"></script> -->
+
+    <script>
+      fetch('http://localhost:3000/')
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res, 'res');
+        });
+    </script>
   </body>
 </html>
