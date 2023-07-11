@@ -21,7 +21,13 @@
     <script src="http://localhost:3000/?callback=cb"></script> -->
 
     <script>
-      fetch('http://localhost:3000/')
+      fetch('http://localhost:3001/home', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: 'zhangsan', age: 15 }),
+      })
         .then((res) => res.json())
         .then((res) => {
           console.log(res, 'res');
