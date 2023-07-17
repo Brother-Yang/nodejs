@@ -6,6 +6,8 @@
     <title>Document</title>
   </head>
   <body>
-    login
+    <%- include('./header.ejs',{title: 'login header'}) %>
+    <h1><%= title %></h1>
+    <%- render %>
   </body>
 </html>
