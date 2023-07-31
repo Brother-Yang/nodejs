@@ -23,8 +23,8 @@ module.exports = db;
 
 // CREATE TABLE  `users`(
 //   `id` INT UNSIGNED AUTO_INCREMENT,
-//   `name` VARCHAR(20) NOT NULL,
-//   `age` INT  ,
+//   `username` VARCHAR(20) NOT NULL,
+//   `password` VARCHAR(20) NOT NULL,
 //   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP  ,
 //   PRIMARY KEY ( `id` )
 // ) DEFAULT CHARSET=utf8;
