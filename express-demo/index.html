@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="ajax">
+      <p>ajax上传</p>
+      <form enctype="multipart/form-data">
+        <input type="file" name="avatar" />
+      </form>
+      <img />
+      <button type="button">上传</button>
+    </div>
+
+    <script>
+      const btn = document.querySelector('.ajax [type=button]');
+      const avatar = document.querySelector('.ajax [name=avatar');
+
+      avatar.addEventListener('change', () => {
+        // 创建预览地址
+        const httpUrl = window.webkitURL.createObjectURL(new Blob(avatar.files));
+        document.querySelector('img').src = httpUrl;
+      });
+
+      btn.addEventListener('click', (e) => {
+        // 要处理成表单对象上传
+        const formsdata = new FormData();
+        // 追加name值，和文件对象
+        formsdata.append('file', avatar.files[0]);
+
+        fetch('http://localhost:3001/upload', {
+          method: 'POST',
+          // !!不能设置Content-Type
+          // headers: {
+          //   'Content-Type': 'multipart/form-data',
+          // },
+          body: { id: 1, formsdata },
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            sessionStorage.setItem('file', res);
+          });
+        return;
+      });
+    </script>
+  </body>
+</html>

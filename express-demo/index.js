@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const LoginRouter = require('./router/login');
 const HomeRouter = require('./router/home');
 const CookieRouter = require('./router/cookie');
+const UploadRouter = require('./router/upload');
 
 app.use(cors());
 app.use(express.json());
@@ -19,5 +20,6 @@ app.get('/', (req, res) => {
 app.use('/home', HomeRouter);
 app.use('/login', LoginRouter);
 app.use('/cookie', CookieRouter);
+app.use('/upload', UploadRouter);
 
 app.listen(3001);
