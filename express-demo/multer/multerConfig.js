@@ -24,9 +24,9 @@ const storage = multer.diskStorage({
   //  3.2 存储名称
   filename: function (req, file, cb) {
     // 将图片名称分割伪数组，用于截取图片的后缀
-    const fileFormat = file.originalname.split('.');
+    const fileFormat = file.originalname;
     // 自定义图片名称
-    cb(null, Date.now() + '.' + fileFormat[fileFormat.length - 1]);
+    cb(null, Date.now() + '-' + fileFormat);
   },
 });
 
